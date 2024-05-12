@@ -12,4 +12,4 @@ Do whatever you want with my scripts as long as you mention that the original wo
 
 Not working for the latest version:
 
--- MagickaRegen: Add players magicka regeneration and adjust the amount of regeneration and its timing.
+-- MagickaRegen: Adds magicka regeneration to players. Adjusts the amount of regeneration and its timing.
