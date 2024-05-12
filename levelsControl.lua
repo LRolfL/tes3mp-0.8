@@ -6,7 +6,7 @@ Establishes the level and points of all basic static aspects of a character, and
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
-2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/playersControl")
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/levelsControl")
 3. Save the changes and close it.
 4. Note: You need to modify the maximum allowed values in the base configuration of TES3MP ('config.lua' in 'server\scripts') to overcome those limitations with my script.
 5. Save the changes and close it.
