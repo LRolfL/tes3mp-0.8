@@ -11,32 +11,44 @@ Steps:
 
 local vampire = true -- 'false' if you want no one becomes vampire through this script.
 local werewolf = true -- 'false' if you want no one becomes werewolf through this script.
-local vampire_talk = false -- 'true' if you want vampires can talk to everyone, but the sun damage applied to them stops working.
+local vampTalk = false -- 'true' if you want vampires can talk to everyone, but the sun damage applied to them stops working.
 
-tableHelper = require("tableHelper")
+local tableHelper = require('tableHelper')
 
-customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, pid)
+function OnPlayerCellChange(eventStatus, pid)
     local player = Players[pid]
     if player and player:IsLoggedIn() then
-        if tableHelper.containsValue(player.data.spellbook, "vampire blood quarra") or tableHelper.containsValue(player.data.spellbook, "vampire blood aundae") or tableHelper.containsValue(player.data.spellbook, "vampire blood berne") and vampire ~= false and not tableHelper.containsValue(player.data.spellbook, "vampire attributes") then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'set PCVampire to 1')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire attributes"')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire skills"')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire immunities"')
-            if vampire_talk ~= true then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire sun damage"')
-            elseif tableHelper.containsValue(player.data.spellbook, "vampire blood quarra") then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire quarra specials"')
-            elseif tableHelper.containsValue(player.data.spellbook, "vampire blood aundae") then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire aundae specials"')
-            elseif tableHelper.containsValue(player.data.spellbook, "vampire blood berne") then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire berne specials"')
-        end
-	    elseif tableHelper.containsValue(player.data.spellbook, "werewolf blood") and werewolf ~= false and not tableHelper.containsValue(player.data.spellbook, "werewolf resists") then
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'set PCWerewolf to 1')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "werewolf resists"')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "werewolf regeneration"')
-            logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "werewolf vision"')
+        if (tableHelper.containsValue(player.data.spellbook, 'vampire blood quarra') or tableHelper.containsValue(player.data.spellbook, 'vampire blood aundae') or tableHelper.containsValue(player.data.spellbook, 'vampire blood berne')) and vampire and not tableHelper.containsValue(player.data.spellbook, 'vampire attributes') then
+            local vampireSpells = {
+                'set PCVampire to 1',
+                'addspell "vampire attributes"',
+                'addspell "vampire skills"',
+                'addspell "vampire immunities"'
+            }
+            for _, command in pairs(vampireSpells) do
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, command)
+            end
+            if vampTalk == false then
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire sun damage"')
+            elseif tableHelper.containsValue(player.data.spellbook, 'vampire blood quarra') then
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire quarra specials"')
+            elseif tableHelper.containsValue(player.data.spellbook, 'vampire blood aundae') then
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire aundae specials"')
+            elseif tableHelper.containsValue(player.data.spellbook, 'vampire blood berne') then
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, 'addspell "vampire berne specials"')
+            end
+        elseif tableHelper.containsValue(player.data.spellbook, 'werewolf blood') and werewolf and not tableHelper.containsValue(player.data.spellbook, 'werewolf resists') then
+            local werewolfSpells = {
+                'set PCWerewolf to 1',
+                'addspell "werewolf resists"',
+                'addspell "werewolf regeneration"',
+                'addspell "werewolf vision"'
+            }
+            for _, command in pairs(werewolfSpells) do
+                logicHandler.RunConsoleCommandOnPlayer(player.pid, command)
+            end
         end
     end
-end)
+end
+
+customEventHooks.registerValidator('OnPlayerCellChange', OnPlayerCellChange)
