@@ -19,7 +19,7 @@ local function OnPlayerCellChange(eventStatus, pid)
         player.previousCell = currentCell
         
         if previousCell then
-            tes3mp.MessageBox(pid, -1, 'You moved from '..previousCell..' to '..currentCell..' on '..currentRegion)
+            tes3mp.MessageBox(pid, -1, 'You moved from ['..previousCell..'] to ['..currentCell..'] on '..currentRegion)
         end
     end
 end
