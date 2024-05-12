@@ -1,11 +1,11 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Very simple script that constantly regenerates 1 point of magicka to all players.
+Description: Constantly regenerates 1 point of magicka to all players.
 
-Installation Steps:
-1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
-2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/simplyRegenMagicka")
+Steps:
+1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/simplyRegenMagicka")
 3. Save the changes and close it.
 --]]
 
