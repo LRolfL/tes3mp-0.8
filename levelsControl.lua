@@ -56,7 +56,7 @@ local maxMercantile = 100
 local maxSpeechcraft = 100
 local maxSecurity = 100
 
-customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, pid)
+customEventHooks.registerValidator('OnPlayerCellChange', function(eventStatus, pid)
     if Players[pid] ~= nil and Players[pid]:IsLoggedIn() then
         -- Level:
         while (tes3mp.GetLevel(pid) > maxLevel and Players[pid].data.stats.level > maxLevel) do
