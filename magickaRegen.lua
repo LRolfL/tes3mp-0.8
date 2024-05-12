@@ -1,7 +1,7 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Add players magicka regeneration and adjust the amount of regeneration and its timing.
+Description: Adds magicka regeneration to players. Adjusts the amount of regeneration and its timing.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
