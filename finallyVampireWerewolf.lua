@@ -3,9 +3,9 @@ Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
 Description: Very simple script that fixes the impossibility of becoming vampire or werewolf without commands, due to how the passage of time works, among other things; executing the appropiate commands each time a player is infected.
 
-Installation Steps:
-1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
-2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/finallyVampireWerewolf")
+Steps:
+1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/finallyVampireWerewolf")
 3. Save the changes and close it.
 --]]
 
