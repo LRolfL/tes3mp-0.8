@@ -20,10 +20,7 @@ local function OnPlayerCellChange(eventStatus, pid)
     if player and player:IsLoggedIn() then
         if (tableHelper.containsValue(player.data.spellbook, 'vampire blood quarra') or tableHelper.containsValue(player.data.spellbook, 'vampire blood aundae') or tableHelper.containsValue(player.data.spellbook, 'vampire blood berne')) and vampire and not tableHelper.containsValue(player.data.spellbook, 'vampire attributes') then
             local vampireSpells = {
-                'set PCVampire to 1',
-                'addspell "vampire attributes"',
-                'addspell "vampire skills"',
-                'addspell "vampire immunities"'
+                'set PCVampire to 1', 'addspell "vampire attributes"', 'addspell "vampire skills"', 'addspell "vampire immunities"'
             }
             for _, command in pairs(vampireSpells) do
                 logicHandler.RunConsoleCommandOnPlayer(player.pid, command)
@@ -39,10 +36,7 @@ local function OnPlayerCellChange(eventStatus, pid)
             end
         elseif tableHelper.containsValue(player.data.spellbook, 'werewolf blood') and werewolf and not tableHelper.containsValue(player.data.spellbook, 'werewolf resists') then
             local werewolfSpells = {
-                'set PCWerewolf to 1',
-                'addspell "werewolf resists"',
-                'addspell "werewolf regeneration"',
-                'addspell "werewolf vision"'
+                'set PCWerewolf to 1', 'addspell "werewolf resists"', 'addspell "werewolf regeneration"', 'addspell "werewolf vision"'
             }
             for _, command in pairs(werewolfSpells) do
                 logicHandler.RunConsoleCommandOnPlayer(player.pid, command)
