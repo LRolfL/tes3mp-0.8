@@ -12,7 +12,7 @@ Steps:
 function OnPlayerCellChange(eventStatus, pid)
     local player = Players[pid]
     
-    if player then
+    if player and player:IsLoggedIn() then
         local currentCell = tes3mp.GetCell(pid)
         local currentRegion = tes3mp.GetRegion(pid)
         local previousCell = player.previousCell
