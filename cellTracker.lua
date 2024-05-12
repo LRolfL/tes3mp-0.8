@@ -9,7 +9,7 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-function OnPlayerCellChange(eventStatus, pid)
+local function OnPlayerCellChange(eventStatus, pid)
     local player = Players[pid]
     
     if player and player:IsLoggedIn() then
