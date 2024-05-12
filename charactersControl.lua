@@ -4,12 +4,12 @@ Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 Description: Provides the capacity to adjust (cap or allow) attributes, skills and level to a certain number (TES3MP does not provide options to individually limit each one).
 Establishes the level and points of all basic static aspects of a character, and checks to prevent no one exceeds it.
 
-Installation Steps:
-1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
-2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/charactersControl")
+Steps:
+1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/charactersControl")
 3. Save the changes and close it.
-4. Note that, you have to modify the maximum values allowed in the base configuration of TES3MP ('config.lua' in 'server\scripts') if you want this script to overcome those limitations.
-5. Save 'config.lua' and close it.
+4. Note: You need to modify the maximum allowed values in the base configuration of TES3MP ('config.lua' in 'server\scripts') to overcome those limitations with my script.
+5. Save the changes and close it.
 --]]
 
 -- Each one are the maximun number of levels somebody can acquire, in an attribute, skill, or player level. Also health, magicka and fatigue.
