@@ -15,7 +15,7 @@ local vampTalk = false -- 'true' if you want vampires can talk to everyone, but 
 
 local tableHelper = require('tableHelper')
 
-function OnPlayerCellChange(eventStatus, pid)
+local function OnPlayerCellChange(eventStatus, pid)
     local player = Players[pid]
     if player and player:IsLoggedIn() then
         if (tableHelper.containsValue(player.data.spellbook, 'vampire blood quarra') or tableHelper.containsValue(player.data.spellbook, 'vampire blood aundae') or tableHelper.containsValue(player.data.spellbook, 'vampire blood berne')) and vampire and not tableHelper.containsValue(player.data.spellbook, 'vampire attributes') then
