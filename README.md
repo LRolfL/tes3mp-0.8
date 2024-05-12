@@ -11,4 +11,4 @@ Do whatever you want with my scripts as long as you mention that the original wo
 
 Not working for the latest version:
 
--- simplyRegenMagicka: Simple way to add players magicka regeneration and adjust the amount of regeneration and its timing.
+-- simplyRegenMagicka: Add players magicka regeneration and adjust the amount of regeneration and its timing.
