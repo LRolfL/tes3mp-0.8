@@ -14,7 +14,7 @@ local function OnPlayerCellChange(eventStatus, pid)
     
     if player and player:IsLoggedIn() then
         local currentCell = tes3mp.GetCell(pid)
-        local currentRegion = tes3mp.GetRegion(pid) or '?'
+        local currentRegion = tes3mp.GetRegion(pid)
         local previousCell = player.previousCell
         player.previousCell = currentCell
         
