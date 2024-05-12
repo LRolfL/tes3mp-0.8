@@ -8,4 +8,4 @@ Do whatever you want with my scripts as long as you mention that the original wo
 
 -- finallyVampireWerewolf: Makes everyone able to become a vampire or werewolf without console commands.
 
--- simplyRegenMagicka: Simpler way to add players magicka regeneration and adjust the amount of regeneration and its timing.
+-- simplyRegenMagicka: Simple way to add players magicka regeneration and adjust the amount of regeneration and its timing.
