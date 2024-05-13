@@ -8,6 +8,6 @@ Do whatever you want with my scripts as long as you mention that the original wo
 
 -- levelsControl: Provides the capacity to adjust (limit or allow) attributes, skills, level and more to a given number.
 
--- cellTracker: An easy way to know in which cell and region you are moving through the message box.
-
 -- magickaRegen: Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
+
+-- cellTracker: An easy way to know in which cell and region you are moving through the message box.
