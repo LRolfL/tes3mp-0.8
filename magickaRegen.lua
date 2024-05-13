@@ -1,7 +1,7 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Adds magicka regeneration to players. Adjusts the amount of regeneration and its timing.
+Description: Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
@@ -9,39 +9,24 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local delay = 1 -- Time delay in seconds. Make it larger or smaller to switch to slower or faster magicka regeneration respectively.
-local amount = 1 -- Numerical amount of magicka that is added to the player's current magicka (quantity of regeneration).
-local players = {}
+local increment = 0.04 -- Numerical multiplier of the magicka regeneration formula.
+local delay = 1.15 -- Timer in seconds.
 
-local function isLoggedIn(player)
-    return player:IsLoggedIn()
-end
-
-local function getMagicka(pid)
-    return tes3mp.GetMagicka(pid)
-end
-
-local function OnServerPostInit()
-    -- List of players connected:
-    players = tes3mp.GetOnlinePlayerList()
-end
-
-local function RegenMagicka(players)
-    -- Browse the list of players:
-    for _, pid in pairs(players) do
-        -- Ensure the player is connected and is not an NPC:
-        local player = Players[pid]
-        if player and isLoggedIn(player) then
-            -- Obtain the player's current magicka:
-            local currentMagicka = getMagicka(pid)
-            local newMagicka = currentMagicka + amount
-            -- Increases player's magicka by 'amount':
-            tes3mp.SetMagicka(pid, newMagicka)
+function regenMagicka(pid)
+    local player = Players[pid]
+    if player then
+        local currentMagicka = tes3mp.GetMagickaCurrent(pid)
+        local baseMagicka = tes3mp.GetMagickaBase(pid)
+        
+        if currentMagicka <= baseMagicka then
+            tes3mp.SetMagickaCurrent(pid, currentMagicka + (baseMagicka * (1 - (currentMagicka/baseMagicka)) * increment))
+            tes3mp.SendStatsDynamic(pid)
+            local timerId = tes3mp.CreateTimerEx('regenMagicka', delay * 1000, 'i', pid)
+            tes3mp.StartTimer(timerId)
         end
     end
 end
 
-OnServerPostInit()
-
--- Executes the function every certain time (defined in 'delay'):
-tes3mp.StartTimer(delay, function() RegenMagicka(players) end, players)
+customEventHooks.registerHandler('OnPlayerConnect', function(eventStatus, pid)
+    regenMagicka(pid)
+end)
