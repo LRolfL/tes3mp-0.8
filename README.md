@@ -10,6 +10,4 @@ Do whatever you want with my scripts as long as you mention that the original wo
 
 -- cellTracker: An easy way to know in which cell and region you are moving through the message box.
 
-Not working as intended:
-
--- magickaRegen: Adds magicka regeneration to players. Adjusts the amount of regeneration and its timing.
+-- magickaRegen: Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
