@@ -11,6 +11,6 @@ Feel able to modify my scripts, just mention that the original work is mine. Tha
 
 -- cellTracker: An easy way to know in which cell and region you are moving through the message box.
 
-Coming soon:
+Proximately:
 
 -- newExp: ???
