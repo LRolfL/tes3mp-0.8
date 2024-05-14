@@ -1,7 +1,7 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Fixes the impossibility of becoming vampire or werewolf without commands, due to how the passage of time works, among other things; executing the appropiate commands each time a player is infected.
+Description: Fixes the impossibility of becoming a vampire or werewolf without commands, due to how the passage of time works, among other things; executing the appropriate commands each time a player is infected.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
