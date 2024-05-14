@@ -1,8 +1,8 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Provides the capacity to adjust attributes, skills, and level to a certain number. (TES3MP does not provide options to limit each one individually).
-Establishes the level and points of all basic static aspects of a character, and checks to prevent no one exceeds it.
+Description: Provides the capacity to set attributes, skills, and level to a certain number. (TES3MP does not provide options to limit each individually).
+Establishes the level and points of all basic static aspects of a character, and checks no one exceeds it.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
