@@ -27,6 +27,4 @@ function regenMagicka(pid)
     end
 end
 
-customEventHooks.registerHandler('OnPlayerConnect', function(eventStatus, pid)
-    regenMagicka(pid)
-end)
+customEventHooks.registerHandler('OnPlayerConnect', function(eventStatus, pid) regenMagicka(pid) end)
