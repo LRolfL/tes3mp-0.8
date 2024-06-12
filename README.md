@@ -1,5 +1,5 @@
 # tes3mp-rolf
-My own scripts for TES3MP 0.8.0 and 0.8.1.
+My scripts for TES3MP 0.8.0/0.8.1 servers.
 
 Feel able to modify my scripts, just mention that the original work is mine. Thanks.
 
