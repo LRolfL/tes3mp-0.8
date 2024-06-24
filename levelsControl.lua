@@ -34,7 +34,6 @@ function controLevels(pid)
             player.data.stats.levelProgress = 0
             player:LoadLevel()
         end
-        
         -- Stats:
         local maxHealth = maxStats.Health
         local maxMagicka = maxStats.Magicka
@@ -49,7 +48,6 @@ function controLevels(pid)
             end
             player:LoadStatsDynamic()
         end
-        
         -- Attributes:
         local attributes = player.data.attributes
         for attributeName, maxValue in pairs(maxAttributes) do
@@ -61,7 +59,6 @@ function controLevels(pid)
             end
         end
         player:LoadAttributes()
-        
         -- Skills:
         local skills = player.data.skills
         for skillName, maxValue in pairs(maxSkills) do
