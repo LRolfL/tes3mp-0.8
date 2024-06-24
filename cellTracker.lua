@@ -11,13 +11,11 @@ Steps:
 
 local function OnPlayerCellChange(eventStatus, pid)
     local player = Players[pid]
-    
     if player and player:IsLoggedIn() then
         local currentCell = tes3mp.GetCell(pid)
         local currentRegion = tes3mp.GetRegion(pid) or '?'
         local previousCell = player.previousCell
         player.previousCell = currentCell
-        
         if previousCell then
             tes3mp.MessageBox(pid, -1, 'You moved from ['..previousCell..'] to ['..currentCell..'] on '..currentRegion)
         end
