@@ -17,7 +17,6 @@ function regenMagicka(pid)
     if player then
         local currentMagicka = tes3mp.GetMagickaCurrent(pid)
         local baseMagicka = tes3mp.GetMagickaBase(pid)
-        
         if currentMagicka <= baseMagicka then
             tes3mp.SetMagickaCurrent(pid, currentMagicka + (baseMagicka * (1 - (currentMagicka/baseMagicka)) * increment))
             tes3mp.SendStatsDynamic(pid)
