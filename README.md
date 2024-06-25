@@ -2,7 +2,7 @@
 > Feel able to modify my scripts, just mention that the original work is mine. Thanks.
 #
 
-```fixVampireWerewolf``` Fixes infection issues, allowing anyone to become a vampire or werewolf without console commands.
+```fixVampireWerewolf``` Fixes issues, allowing anyone to become a vampire or werewolf without console commands.
 
 ```levelsLimit```
 
