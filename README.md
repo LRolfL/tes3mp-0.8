@@ -1,4 +1,4 @@
-### My TES3MP 0.8.0/0.8.1 scripts for public use/servers.
+### My public TES3MP 0.8.0/0.8.1 scripts for servers.
 > Feel able to modify my scripts, just mention that the original work is mine. Thanks.
 #
 
