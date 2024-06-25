@@ -10,6 +10,6 @@
 
 ```cellTracker``` Easy way to know in which cell and region you are moving through the message box.
 
-*Proximately:
+*Proximately:*
 
 ```newXP``` *???*
