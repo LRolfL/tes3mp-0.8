@@ -1,18 +1,17 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Fixes the impossibility of becoming a vampire or werewolf without commands, due to how the passage of time works, among other things; executing the appropriate commands each time a player is infected.
+Description: Fixes the impossibility of becoming a vampire/werewolf without commands due to the passage of time; executes appropriate orders when infected.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
-2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/finallyVampireWerewolf")
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require('custom/finallyVampireWerewolf')
 3. Save the changes and close it.
 --]]
 
-local vampire = true -- 'false' if you want no one becomes vampire through this script.
-local werewolf = true -- 'false' if you want no one becomes werewolf through this script.
-local vampTalk = false -- 'true' if you want vampires can talk to everyone, but the sun damage applied to them stops working.
-
+local vampire = true -- 'false' disables vampire fix.
+local werewolf = true -- 'false' disables werewolf fix.
+local vampTalk = false -- 'true' allows vampires to talk to everyone, but disables sun damage.
 local tableHelper = require('tableHelper')
 
 local function OnPlayerCellChange(eventStatus, pid)
