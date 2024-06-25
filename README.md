@@ -4,7 +4,7 @@
 
 ```fixVampireWerewolf``` Fixes issues, allowing anyone to become a vampire or werewolf without console commands.
 
-```levelsLimit```
+```levelsLimit``` Set and force a level limit for character level, stats, attributes and skills.
 
 ```magickaRegen``` Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
 
