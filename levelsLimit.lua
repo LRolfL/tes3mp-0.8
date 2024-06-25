@@ -1,12 +1,11 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Provides the capacity to set attributes, skills, and level to a certain number. (TES3MP does not provide options to limit each individually).
-Establishes the level and points of all basic static aspects of a character, and checks no one exceeds it.
+Description: Set and force a level limit for character level, stats, attributes and skills to a number (TES3MP does not provide individual limit options).
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
-2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/levelsControl")
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require('custom/levelsLimit')
 3. Save the changes and close it.
 4. Note: You need to modify the maximum allowed values in the base TES3MP configuration ('config.lua' in 'server\scripts') to overcome those limitations with mine.
 5. Save the changes and close it.
