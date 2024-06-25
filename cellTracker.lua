@@ -5,7 +5,7 @@ Description: An easy way to know in which cell and region you are moving through
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
-2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/cellTracker")
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require('custom/cellTracker')
 3. Save the changes and close it.
 --]]
 
