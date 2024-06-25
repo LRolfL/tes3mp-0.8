@@ -5,12 +5,12 @@ Description: Adds constant magicka regeneration to players. Adjusts the amount o
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
-2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require("custom/magickaRegen")
+2. Open 'customScripts.lua' file ('server\scripts') and write in it the next line: require('custom/magickaRegen')
 3. Save the changes and close it.
 --]]
 
 local increment = 0.04 -- Numerical multiplier of the magicka regeneration formula.
-local delay = 1.15 -- Timer in seconds.
+local delay = 1.14 -- Timer in seconds.
 
 function regenMagicka(pid)
     local player = Players[pid]
