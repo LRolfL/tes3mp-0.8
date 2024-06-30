@@ -10,6 +10,8 @@
 
 ```cellTracker``` Easy way to know in which cell and region you are moving through the message box.
 
+```fixDbAttack``` Manages assassin appearances based on player level, configurable for one or multiple spawns per character.
+
 *Proximately:*
 
 ```newXP``` *???*
