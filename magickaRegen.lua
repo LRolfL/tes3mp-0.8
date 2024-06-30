@@ -1,5 +1,5 @@
 --[[
-Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
+Written by 'Rolf' for TES3MP 0.8.0/0.8.1.
 
 Description: Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
 
