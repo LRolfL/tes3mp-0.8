@@ -1,5 +1,5 @@
 --[[
-Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
+Written by 'Rolf' for TES3MP 0.8.0/0.8.1.
 
 Description: Set and enforce a level cap for character's level, stats, attributes and skills (TES3MP does not provide individual limit options).
 
