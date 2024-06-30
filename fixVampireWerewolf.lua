@@ -1,5 +1,5 @@
 --[[
-Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
+Written by 'Rolf' for TES3MP 0.8.0/0.8.1.
 
 Description: Fixes the impossibility of becoming a vampire/werewolf without commands due to the passage of time; executes appropriate orders when infected.
 
