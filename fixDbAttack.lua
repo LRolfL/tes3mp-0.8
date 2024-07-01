@@ -9,7 +9,7 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local lvl = 25 -- Level required to activate assassin spawns.
+local lvl = 25 -- Level required to activate assassins.
 local spawnOnce = false -- If 'true', the assassin appears only once per player.
 local scrStatus = {}
 local assStatus = {}
