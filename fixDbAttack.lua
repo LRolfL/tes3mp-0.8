@@ -1,7 +1,7 @@
 --[[
 Written by 'Rolf' for TES3MP 0.8.0/0.8.1. Inspired by Learwolf's dbFix.
 
-Description: Manages DB assassins appearance based on player level. Configurable for spawning once or more per character.
+Description: Manages DB assassins appearance based on player level. Choose if spawn once or more times per character.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
@@ -9,8 +9,8 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local lvl = 25 -- Level required to activate assassins.
-local spawnOnce = false -- If 'true', the assassin appears only once per player.
+local lvl = 25 -- Level required to enable assassins.
+local spawnOnce = false -- If 'true', assassins will only appear once time per player.
 local scrStatus = {}
 local assStatus = {}
 
