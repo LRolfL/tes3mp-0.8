@@ -6,9 +6,9 @@
 
 ```levelsLimit``` Set and enforce a level cap for character's level, stats, attributes and skills.
 
-```magickaRegen``` Adds constant magicka regeneration to players. Adjusts the amount of regeneration and its timing.
+```magickaRegen``` Adds constant magicka regeneration to players. Adjust the amount of regeneration and its timing.
 
-```cellTracker``` Easy way to know in which cell and region you are moving through the message box.
+```cellTracker``` Easy way to know in which cell and region you are through the message box.
 
 ```fixDbAttack``` Manages assassins appearance based on player level. Choose if spawn once or more per character.
 
