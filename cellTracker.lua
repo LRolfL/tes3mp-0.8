@@ -9,15 +9,15 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local function OnPlayerCellChange(eventStatus, pid)
-    local player = Players[pid]
-    if player and player:IsLoggedIn() then
-        local currentCell = tes3mp.GetCell(pid)
-        local currentRegion = tes3mp.GetRegion(pid) or '?'
-        local previousCell = player.previousCell
-        player.previousCell = currentCell
-        if previousCell then
-            tes3mp.MessageBox(pid, -1, 'You moved from ['..previousCell..'] to ['..currentCell..'] on '..currentRegion)
+local function OnPlayerCellChange(_, pid)
+    local p = Players[pid]
+    if p and p:IsLoggedIn() then
+        local currCell = tes3mp.GetCell(pid)
+        local currRegion = tes3mp.GetRegion(pid) or '?'
+        local prevCell = p.previousCell
+        p.previousCell = currCell
+        if prevCell then
+            tes3mp.MessageBox(pid, -1, 'You moved from ['..prevCell..'] to ['..currCell..'] on '..currRegion)
         end
     end
 end
