@@ -11,29 +11,26 @@ Steps:
 
 local lvl = 25 -- Level required to activate assassin spawns.
 local spawnOnce = false -- If 'true', the assassin appears only once per player.
-local scriptStatus = {}
-local assassinStatus = {}
+local scrStatus = {}
+local assStatus = {}
 
 local function toggleScript(pid, start)
-    if scriptStatus[pid] ~= start then
+    if scrStatus[pid] ~= start then
         logicHandler.RunConsoleCommandOnPlayer(pid, (start and 'startscript' or 'stopscript')..' dbAttackScript')
-        scriptStatus[pid] = start
+        scrStatus[pid] = start
     end
 end
 
 local function checkLevel(pid)
-    if not assassinStatus[pid] and spawnOnce then
-        toggleScript(pid, tes3mp.GetLevel(pid) >= lvl)
-        assassinStatus[pid] = true
-    elseif not spawnOnce then
+    if spawnOnce then
+        if not assStatus[pid] then
+            toggleScript(pid, tes3mp.GetLevel(pid) >= lvl)
+            assStatus[pid] = true
+        end
+    else
         toggleScript(pid, tes3mp.GetLevel(pid) >= lvl)
     end
 end
 
 customEventHooks.registerHandler('OnPlayerLevel', function(_, pid) checkLevel(pid) end)
-
-customEventHooks.registerHandler('OnPlayerAuthentified', function(_, pid)
-    if Players[pid] and Players[pid]:IsLoggedIn() then
-        checkLevel(pid)
-    end
-end)
+customEventHooks.registerHandler('OnPlayerAuthentified', function(_, pid) if Players[pid] and Players[pid]:IsLoggedIn() then checkLevel(pid) end end)
