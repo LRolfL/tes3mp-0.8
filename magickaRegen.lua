@@ -10,7 +10,7 @@ Steps:
 --]]
 
 local inc = 0.04 -- Numerical multiplier of the magicka regeneration formula.
-local delay = 1.14 -- Timer in seconds.
+local delay = 1.12 -- Timer in seconds.
 
 function regenMagicka(pid)
     if Players[pid] then
@@ -19,10 +19,9 @@ function regenMagicka(pid)
         if currMagicka <= baseMagicka then
             tes3mp.SetMagickaCurrent(pid, currMagicka + (baseMagicka * (1 - (currMagicka/baseMagicka)) * inc))
             tes3mp.SendStatsDynamic(pid)
-            local timerId = tes3mp.CreateTimerEx('regenMagicka', delay * 1000, 'i', pid)
-            tes3mp.StartTimer(timerId)
+            tes3mp.StartTimer(tes3mp.CreateTimerEx('regenMagicka', delay * 1000, 'i', pid))
         end
     end
 end
 
-customEventHooks.registerHandler('OnPlayerConnect', function(eventStatus, pid) regenMagicka(pid) end)
+customEventHooks.registerHandler('OnPlayerConnect', function(_, pid) regenMagicka(pid) end)
