@@ -21,34 +21,33 @@ local maxSkills = {
     Acrobatics = 100, Athletics = 100, Sneak = 100
 }
 
-function controLevels(pid)
-    local player = Players[pid]
-    if player then
-        local timerId = tes3mp.CreateTimerEx('controLevels', 10000, 'i', pid) -- 10 seconds until next check.
-        tes3mp.StartTimer(timerId)
+function capLevels(pid)
+    local p = Players[pid]
+    if p then
+        tes3mp.StartTimer(tes3mp.CreateTimerEx('capLevels', 10000, 'i', pid)) -- 10 seconds until next check.
         -- Level:
         local maxLevel = maxStats.Level
         while tes3mp.GetLevel(pid) > maxLevel do
-            player.data.stats.level = maxLevel
-            player.data.stats.levelProgress = 0
-            player:LoadLevel()
+            p.data.stats.level = maxLevel
+            p.data.stats.levelProgress = 0
+            p:LoadLevel()
         end
         -- Stats:
         local maxHealth = maxStats.Health
         local maxMagicka = maxStats.Magicka
         local maxFatigue = maxStats.Fatigue
-        while player.data.stats.healthBase > maxHealth or player.data.stats.magickaBase > maxMagicka or player.data.stats.fatigueBase > maxFatigue do
-            if player.data.stats.healthBase > maxHealth then
-                player.data.stats.healthBase = maxHealth
-            elseif player.data.stats.magickaBase > maxMagicka then
-                player.data.stats.magickaBase = maxMagicka
-            elseif player.data.stats.fatigueBase > maxFatigue then
-                player.data.stats.fatigueBase = maxFatigue
+        while p.data.stats.healthBase > maxHealth or p.data.stats.magickaBase > maxMagicka or p.data.stats.fatigueBase > maxFatigue do
+            if p.data.stats.healthBase > maxHealth then
+                p.data.stats.healthBase = maxHealth
+            elseif p.data.stats.magickaBase > maxMagicka then
+                p.data.stats.magickaBase = maxMagicka
+            elseif p.data.stats.fatigueBase > maxFatigue then
+                p.data.stats.fatigueBase = maxFatigue
             end
-            player:LoadStatsDynamic()
+            p:LoadStatsDynamic()
         end
         -- Attributes:
-        local attributes = player.data.attributes
+        local attributes = p.data.attributes
         for attributeName, maxValue in pairs(maxAttributes) do
             if attributes and attributes[attributeName] then
                 if attributes[attributeName].base > maxValue then
@@ -57,9 +56,9 @@ function controLevels(pid)
                 end
             end
         end
-        player:LoadAttributes()
+        p:LoadAttributes()
         -- Skills:
-        local skills = player.data.skills
+        local skills = p.data.skills
         for skillName, maxValue in pairs(maxSkills) do
             if skills and skills[skillName] then
                 if skills[skillName].base > maxValue then
@@ -68,8 +67,8 @@ function controLevels(pid)
                 end
             end
         end
-        player:LoadSkills()
+        p:LoadSkills()
     end
 end
 
-customEventHooks.registerHandler('OnPlayerConnect', function(eventStatus, pid) controLevels(pid) end)
+customEventHooks.registerHandler('OnPlayerConnect', function(_, pid) capLevels(pid) end)
