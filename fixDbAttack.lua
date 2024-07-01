@@ -1,7 +1,7 @@
 --[[
 Written by 'Rolf' for TES3MP 0.8.0/0.8.1. Inspired by Learwolf's dbFix.
 
-Description: Manages the appearance of assassins based on player level. Configurable for one or more spawns per character.
+Description: Manages DB assassins appearance based on player level. Configurable for spawning once or more per character.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
