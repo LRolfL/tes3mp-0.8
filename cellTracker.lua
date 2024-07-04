@@ -1,7 +1,7 @@
 --[[
 Written by 'Rolf' for TES3MP 0.8.0/0.8.1.
 
-Description: An easy way to know in which cell and region you are moving through the message box.
+Description: Easy way to know in which cell and region you are through the message box.
 
 Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP directory.
