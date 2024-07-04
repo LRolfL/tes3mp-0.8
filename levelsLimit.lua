@@ -66,7 +66,7 @@ function capLevels(pid)
     end
     if skillsChanged then p:LoadSkills() end
     -- Timer:
-    tes3mp.StartTimer(tes3mp.CreateTimerEx('capLevels', 2500, 'i', pid)) -- 2.5 seconds until next check.
+    tes3mp.StartTimer(tes3mp.CreateTimerEx('capLevels', 2500, 'i', pid)) -- 2.5s until next check.
 end
 
 customEventHooks.registerHandler('OnPlayerConnect', function(_, pid) capLevels(pid) end)
