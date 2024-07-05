@@ -16,7 +16,8 @@ function regenMagicka(pid)
     local p = Players[pid]
     if p then
         local currMagicka = tes3mp.GetMagickaCurrent(pid)
-        if currMagicka < p.data.stats.magickaBase then
+        local baseMagicka = p.data.stats.magickaBase
+        if currMagicka < baseMagicka then
             tes3mp.SetMagickaCurrent(pid, currMagicka + (baseMagicka * (1 - (currMagicka/baseMagicka)) * mult))
             tes3mp.SendStatsDynamic(pid)
             tes3mp.StartTimer(tes3mp.CreateTimerEx('regenMagicka', delay * 1000, 'i', pid))
