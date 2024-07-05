@@ -10,7 +10,7 @@ Steps:
 --]]
 
 local mult = 0.04 -- Multiplier of the magicka regeneration formula.
-local delay = 1.12 -- Timer in seconds.
+local delay = 1.125 -- Timer in seconds.
 
 function regenMagicka(pid)
     if Players[pid] then
