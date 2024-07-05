@@ -9,14 +9,14 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local mult = 0.04 -- Multiplier of the magicka regeneration formula.
-local delay = 1.125 -- Timer in seconds.
+local mult = 0.05 -- Multiplier of the magicka regeneration formula.
+local delay = 1 -- Timer in seconds.
 
 function regenMagicka(pid)
-    if Players[pid] then
+    local p = Players[pid]
+    if p then
         local currMagicka = tes3mp.GetMagickaCurrent(pid)
-        local baseMagicka = tes3mp.GetMagickaBase(pid)
-        if currMagicka <= baseMagicka then
+        if currMagicka < p.data.stats.magickaBase then
             tes3mp.SetMagickaCurrent(pid, currMagicka + (baseMagicka * (1 - (currMagicka/baseMagicka)) * mult))
             tes3mp.SendStatsDynamic(pid)
             tes3mp.StartTimer(tes3mp.CreateTimerEx('regenMagicka', delay * 1000, 'i', pid))
