@@ -30,15 +30,15 @@ function capLevels(pid)
     -- Stats:
     local stats = p.data.stats
     local statsChanged = false
-    if stats.healthBase > maxStats.Health then
+    if stats.healthBase > maxStats.Health or stats.healthCurrent > maxStats.Health then
         stats.healthBase = maxStats.Health
         statsChanged = true
     end
-    if stats.magickaBase > maxStats.Magicka then
+    if stats.magickaBase > maxStats.Magicka or stats.magickaCurrent > maxStats.Magicka then
         stats.magickaBase = maxStats.Magicka
         statsChanged = true
     end
-    if stats.fatigueBase > maxStats.Fatigue then
+    if stats.fatigueBase > maxStats.Fatigue or stats.fatigueCurrent > maxStats.Fatigue then
         stats.fatigueBase = maxStats.Fatigue
         statsChanged = true
     end
