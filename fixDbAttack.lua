@@ -11,8 +11,7 @@ Steps:
 
 local lvl = 25 -- Level required to enable assassins.
 local spawnOnce = false -- If 'true', assassins will only appear once time per player.
-local scrStatus = {}
-local assStatus = {}
+local scrStatus, assStatus = {}, {}
 
 local function toggleScript(pid, start)
     if scrStatus[pid] ~= start then
