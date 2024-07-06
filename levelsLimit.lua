@@ -10,7 +10,7 @@ Steps:
 4. Note: You need to modify the maximum allowed values in the TES3MP configuration ('config.lua' in 'server\scripts') to overcome those limitations with mine.
 --]]
 
-local maxStats = {Level = 200, Health = 5000, Magicka = 2000, Fatigue = 2000}
+local maxStats = {Level = 200, LevelProgress = 500, Health = 5000, Magicka = 2000, Fatigue = 2000}
 local maxAttributes = {Strength = 100, Agility = 100, Personality = 100, Speed = 100, Luck = 100, Endurance = 100, Intelligence = 100, Willpower = 100}
 local maxSkills = {
     Heavyarmor = 100, Mediumarmor = 100, Lightarmor = 100, Unarmored = 100, Spear = 100, Axe = 100, Bluntweapon = 100, Longblade = 100, Shortblade = 100, Marksman = 100, Handtohand = 100, Block = 100,
@@ -19,33 +19,32 @@ local maxSkills = {
 }
 
 function capLevels(pid)
-    local p = Players[pid]
-    if not p then return end
+    local p = Players[pid] if not p then return end
+    local stats = p.data.stats
+    local attrs = p.data.attributes
+    local skills = p.data.skills
+    local statsChanged, attrsChanged, skillsChanged = false, false, false
     -- Level:
     if tes3mp.GetLevel(pid) > maxStats.Level then
-        p.data.stats.level = maxStats.Level
-        p.data.stats.levelProgress = 0
+        stats.level = maxStats.Level
+        stats.levelProgress = 0
+        p:LoadLevel()
+    elseif tes3mp.GetLevelProgress(pid) > maxStats.LevelProgress then
+        stats.levelProgress = maxStats.LevelProgress
         p:LoadLevel()
     end
     -- Stats:
-    local stats = p.data.stats
-    local statsChanged = false
-    if stats.healthBase > maxStats.Health or stats.healthCurrent > maxStats.Health then
-        stats.healthBase = maxStats.Health
-        statsChanged = true
+    local function checkStat(stat, max)
+        if stats[stat..'Base'] > max or stats[stat..'Current'] > max then
+            stats[stat..'Base'] = max
+            statsChanged = true
+        end
     end
-    if stats.magickaBase > maxStats.Magicka or stats.magickaCurrent > maxStats.Magicka then
-        stats.magickaBase = maxStats.Magicka
-        statsChanged = true
-    end
-    if stats.fatigueBase > maxStats.Fatigue or stats.fatigueCurrent > maxStats.Fatigue then
-        stats.fatigueBase = maxStats.Fatigue
-        statsChanged = true
-    end
+    checkStat('health', maxStats.Health)
+    checkStat('magicka', maxStats.Magicka)
+    checkStat('fatigue', maxStats.Fatigue)
     if statsChanged then p:LoadStatsDynamic() end
     -- Attributes:
-    local attrs = p.data.attributes
-    local attrsChanged = false
     for attr, max in pairs(maxAttributes) do
         if attrs[attr].base > max then
             attrs[attr].base = max
@@ -55,8 +54,6 @@ function capLevels(pid)
     end
     if attrsChanged then p:LoadAttributes() end
     -- Skills:
-    local skills = p.data.skills
-    local skillsChanged = false
     for skill, max in pairs(maxSkills) do
         if skills[skill].base > max then
             skills[skill].base = max
@@ -66,7 +63,7 @@ function capLevels(pid)
     end
     if skillsChanged then p:LoadSkills() end
     -- Timer:
-    tes3mp.StartTimer(tes3mp.CreateTimerEx('capLevels', 1250, 'i', pid)) -- 1.25s until next check.
+    tes3mp.StartTimer(tes3mp.CreateTimerEx('capLevels', 1000, 'i', pid)) -- 1s until next check.
 end
 
 customEventHooks.registerHandler('OnPlayerConnect', function(_, pid) capLevels(pid) end)
