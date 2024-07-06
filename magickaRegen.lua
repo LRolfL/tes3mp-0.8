@@ -15,8 +15,7 @@ local delay = 1.0625 -- Timer in seconds.
 function regenMagicka(pid)
     local p = Players[pid]
     if p then
-        local currMagicka = tes3mp.GetMagickaCurrent(pid)
-        local baseMagicka = p.data.stats.magickaBase
+        local currMagicka, baseMagicka = tes3mp.GetMagickaCurrent(pid), p.data.stats.magickaBase
         if currMagicka < baseMagicka then
             tes3mp.SetMagickaCurrent(pid, currMagicka + (baseMagicka * (1 - (currMagicka/baseMagicka)) * mult))
             tes3mp.SendStatsDynamic(pid)
