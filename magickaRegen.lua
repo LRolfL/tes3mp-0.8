@@ -9,7 +9,7 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local mult = 0.05 -- Multiplier of the magicka regeneration formula.
+local mult = 0.05 -- Magicka regeneration formula multiplier.
 local delay = 1.0625 -- Timer in seconds.
 
 function regenMagicka(pid)
