@@ -9,8 +9,7 @@ Steps:
 3. Save the changes and close it.
 --]]
 
-local vampire = true -- 'false' disables vampire fix.
-local werewolf = true -- 'false' disables werewolf fix.
+local vampire, werewolf = true, true -- 'false' disables the fix.
 local vampTalk = false -- 'true' allows vampires to talk to everyone, but disables sun damage.
 local tableHelper = require('tableHelper')
 
