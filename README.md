@@ -12,9 +12,7 @@
 
 ```fixDbAttack``` Manages assassins appearance based on player level. Choose if spawn once or more per actor.
 
-*Proximately:*
-
-```newXP``` *???*
+*Proximately:* ```newXP``` *???*
 
 #
 > Give me a star if you like my scripts or suggest me in 'Issues'.
