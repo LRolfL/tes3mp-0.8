@@ -15,3 +15,6 @@
 *Proximately:*
 
 ```newXP``` *???*
+
+#
+> Give me a star if you liked my scripts or give me a suggestion in 'Issues'.
