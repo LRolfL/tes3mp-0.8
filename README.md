@@ -1,5 +1,5 @@
 ### My public TES3MP 0.8.0/0.8.1 scripts for servers.
-> Feel able to modify them, just mention that the original work is mine. Thanks.
+> Feel able to modify them, just mention the original work is mine. Thanks.
 #
 
 ```fixVampireWerewolf``` Fixes issues, allowing anyone to become a vampire or werewolf without console.
@@ -15,4 +15,4 @@
 *Proximately:* ```newXP``` *???*
 
 #
-> Give me a star ⭐ if you like my scripts or suggest me in 'Issues'.
+> Give me a star ⭐ if you like or suggest me in 'Issues'.
