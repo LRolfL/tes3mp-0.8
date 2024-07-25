@@ -20,8 +20,7 @@ local maxSkills = {
 
 function capLevels(pid)
     local p = Players[pid] if not p then return end
-    local stats, attrs, skills = p.data.stats, p.data.attributes, p.data.skills
-    local statsChanged, attrsChanged, skillsChanged = false, false, false
+    local stats, attrs, skills, statsChanged, attrsChanged, skillsChanged = p.data.stats, p.data.attributes, p.data.skills, false, false, false
     -- Level:
     if tes3mp.GetLevel(pid) > maxStats.Level then
         stats.level = maxStats.Level
